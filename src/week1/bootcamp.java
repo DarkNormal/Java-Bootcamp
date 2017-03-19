@@ -97,4 +97,5 @@ public class bootcamp {
         output.trim();
         System.out.println(output);
     }
+
 }
