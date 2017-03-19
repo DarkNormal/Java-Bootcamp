@@ -18,22 +18,13 @@ public class Dice {
         return directionToMove;
     }
 
-    public String displayStats(){
-        StringBuilder sb = new StringBuilder();
-        sb.append("Frequency Stats:\n");
-        sb.append("North:\t\t");
-        sb.append("South:\t\t");
-        sb.append("East:\t\t");
-        sb.append("West:\n");
-        sb.append(directionCounts.get(Direction.NORTH));
-        sb.append("\t\t\t");
-        sb.append(directionCounts.get(Direction.SOUTH));
-        sb.append("\t\t\t");
-        sb.append(directionCounts.get(Direction.EAST));
-        sb.append("\t\t\t");
-        sb.append(directionCounts.get(Direction.WEST));
-
-
-        return  sb.toString();
+    public void displayStats(){
+        System.out.println("Frequency Stats:");
+        String format = "%-20s%-20s%-20s%-20s%n";
+        System.out.printf(format, "North:", "South", "East", "West");
+        System.out.printf(format, directionCounts.get(Direction.NORTH),
+                directionCounts.get(Direction.SOUTH),
+                directionCounts.get(Direction.EAST),
+                directionCounts.get(Direction.WEST));
     }
 }

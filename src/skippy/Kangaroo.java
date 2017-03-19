@@ -37,7 +37,7 @@ public class Kangaroo {
     }
     public void move(){
         actualLocation.moveTo(proposedLocation);
-        System.out.println("Hopped to:" + actualLocation.getPointX() + ", " + actualLocation.getPointY() + ")!");
+        System.out.println("Hopped to: (" + actualLocation.getPointX() + ", " + actualLocation.getPointY() + ")!");
     }
     public void cancelMove(){
         proposedLocation.setPointX(actualLocation.getPointX());

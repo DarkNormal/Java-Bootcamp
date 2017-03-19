@@ -28,12 +28,13 @@ public class RunSkippy {
         while(skippy.atHome() != true){
             skippy.hop(dice);
             if(grid.liesOutsideBounds(skippy.getProposedLocation())){
-                System.out.println("Oops, hit the boundary!");
+                System.out.println("Oops, hit the boundary! (" + skippy.getProposedLocation().getPointX() + ", " + skippy.getProposedLocation().getPointY() + ")");
                 skippy.cancelMove();
             }
             else{
                 skippy.move();
             }
         }
+       dice.displayStats();
     }
 }
