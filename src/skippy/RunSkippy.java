@@ -26,13 +26,12 @@ public class RunSkippy {
         Kangaroo skippy = new Kangaroo(new Point(0,0), "Skippy", new Point(gridSize, gridSize));
         Dice dice = new Dice();
         while(skippy.atHome() != true){
-            skippy.hop(dice);
-            if(grid.liesOutsideBounds(skippy.getProposedLocation())){
-                System.out.println("Oops, hit the boundary! (" + skippy.getProposedLocation().getPointX() + ", " + skippy.getProposedLocation().getPointY() + ")");
-                skippy.cancelMove();
+            Point newLocation = skippy.hop(dice);
+            if(grid.liesOutsideBounds(newLocation)){
+                System.out.println("Oops, hit the boundary! (" + newLocation.getPointX() + ", " + newLocation.getPointY() + ")");
             }
             else{
-                skippy.move();
+                skippy.move(newLocation);
             }
         }
        dice.displayStats();

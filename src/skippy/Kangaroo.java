@@ -7,40 +7,33 @@ import static skippy.Direction.fromDirection;
  */
 public class Kangaroo {
 
-    private Point proposedLocation;
-    private Point actualLocation;
+    private Point location;
     private String name;
     private Point home;
 
     public Kangaroo(Point location, String name, Point home) {
-        this.proposedLocation = location;
+        this.location = location;
         this.name = name;
         this.home = home;
-        this.actualLocation = new Point(0,0);
+        this.location = new Point(0,0);
     }
 
-    public Point getProposedLocation() {
-        return proposedLocation;
-    }
-
-    public void hop(Dice dice){
+    public Point hop(Dice dice){
         Direction direction = dice.throwDice();
         Point pointToMoveBy = fromDirection(direction);
-        proposedLocation.move(pointToMoveBy);
+        Point newLocation = new Point(location.getPointX(), location.getPointY());
+        newLocation.addPointTo(pointToMoveBy);
+        return newLocation;
     }
 
     public boolean atHome(){
-        if(proposedLocation.comparePoints(proposedLocation,home)){
+        if(location.comparePoints(location,home)){
             return true;
         }
         else return false;
     }
-    public void move(){
-        actualLocation.moveTo(proposedLocation);
-        System.out.println("Hopped to: (" + actualLocation.getPointX() + ", " + actualLocation.getPointY() + ")!");
-    }
-    public void cancelMove(){
-        proposedLocation.setPointX(actualLocation.getPointX());
-        proposedLocation.setPointY(actualLocation.getPointY());
+    public void move(Point newLocation){
+        location.moveTo(newLocation);
+        System.out.println("Hopped to: (" + location.getPointX() + ", " + location.getPointY() + ")!");
     }
 }

@@ -34,7 +34,7 @@ public class Point {
         else
             return false;
     }
-    public void move(Point toMoveBy){
+    public void addPointTo(Point toMoveBy){
         pointX += toMoveBy.getPointX();
         pointY += toMoveBy.getPointY();
     }
