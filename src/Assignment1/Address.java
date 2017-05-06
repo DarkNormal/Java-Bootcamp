@@ -13,6 +13,13 @@ public class Address implements Constants {
         this.zipCode = zipCode;
     }
 
+    public Address(String[] address) {
+        this.addressLine1 = address[0];
+        this.addressLine2 = address[1];
+        this.addressLine3 = address[2];
+        this.zipCode = address[3];
+    }
+
 
     @Override
     public String toString() {
